@@ -1,0 +1,92 @@
+,Date,FW,Bit File,Note,,,,,,
+,5/9/2017,V2.063,FPGA_SK1_c03_IRP_DPC_TEMP_NORDN_v1_0503_2000x2000,,,,,,,
+,5/22/2017,V4.003,FPGA_SK1_c05_IRP_HDR_TOP_v1_0515_2000x2000,,,,,,,
+,6/22/2017,V6.060,FPGA_SK1_c07_SCENARIO_SIMPLE_v1_0613_2000x2000,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+Group ID,Module,Sub-Item,Description,Procedure,Pass_Criteria,Result,Case #,Pass #,Fail #,Note
+ID10001,LVHWIRP_b0,AWB,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  awb function
+3. feature : Verify awb function parameter
+4. default value : no crop, common algorithm parameter except awb function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,107,107,0,
+ID10002,LVHWIRP_b0,ABC,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  abc function
+3. feature : Verify bc function parameter
+4. default value : no crop, common algorithm parameter except abc function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,348,348,0,
+ID10003,LVHWIRP_b0,CCM,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  ccm function
+3. feature : Verify ccm function parameter
+4. default value : no crop, common algorithm parameter except ccm function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,281,281,0,
+ID10004,LVHWIRP_b0,YCC,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : rgb2ycc function
+3. feature : Verify rgb2ycc parameter
+4. default value : no crop, common algorithm parameter except rgb2ycc function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,400,400,0,
+ID10005,LVHWIRP_b0,GCFAI,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  gcfai function
+3. feature : Verify gcfai function parameter
+4. default value : no crop, common algorithm parameter except gcfai function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,181,181,0,
+ID10006,LVHWIRP_b0,CFAI,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : bayer domain algorithm function (include awb, abc, final tone, ccm, gcfai, k tone, rgb2k)
+3. feature : Verify bayer domain algorithm function parameter
+4. default value : no crop, ycc algorithm parameter","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,600,600,0,
+ID10007,LVHWIRP_b0,rt_update,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : Real time function in bayer sensor mode
+3. feature : Verify Real time parameter
+4. default value : no crop, common algorithm parameter except real time function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,20,20,0,
+ID10008,LVHWIRP_b0,nrt_update,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : non-real time function in bayer sensor mode
+3. feature : Verify non-real time parameter
+4. default value : no crop, common algorithm parameter except non-real time function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,20,20,0,
+ID10009,LVHWIRP_b0,BayerSize_1,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : In crop function in BW sensor mode
+3. feature : Verify In crop function and boundary image width
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,100,100,0,
+ID10010,LVHWIRP_b0,BayerSize_2,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : In crop function in BW sensor mode
+3. feature : Verify In crop function and boundary image height
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,80,80,0,
+ID10011,LVHWIRP_b0,BWSize_1,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : In crop function
+3. feature : Verify In crop function and boundary image width
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,100,100,0,
+ID10012,LVHWIRP_b0,BWSize_2,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : In crop function
+3. feature : Verify In crop function and boundary image height
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,80,80,0,
+ID10013,LVHWIRP_b0,BayerK,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  rgb2k and k tone function
+3. feature : Verify rgb2k and k tone function parameter
+4. default value : no crop, common algorithm parameter except rgb2k and k tone function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,40,40,0,
+ID10014,LVHWIRP_b0,BWK,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  k tone function in BW sensor mode
+3. feature : Verify k tone function parameter
+4. default value : no crop, common algorithm parameter except k tone function.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,50,50,0,
+ID10015,LVHWIRP_b0,BayerDrop,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : drop function
+3. feature : Verify drop function
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,16,16,0,
+ID10016,LVHWIRP_b0,BWDrop,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block : drop function in BW sensor mode
+3. feature : Verify drop function
+4. default value : common algorithm parameter.","1. Load image -> load config and set -> trigger -> wait done -> check sum/xor
+2. Check frame index in continue mode",1. compare with c-model HW result and SW result,Pass,4,4,0,
+ID10017,LVHWIRP_a0,INTerr,"1. path descrition : ispif_a_1->idd_a_1->rlb_b_0->mono_scl_a_1->lsc_b_3->lvhwirp_b_0->lvlumanr_a_1->lvsharp_a_1->y_bin_a_1->compress_rotator_b_0->dram
+2. function block :  Interrupt status
+3. feature : Verify frame overwrite
+4. default value : common algorithm parameter.",1. load config and set -> modify size of the first module -> trigger twice -> check the frame overwrite status,1. check the frame overwrite status,Pass,1,1,0,
+,,,,,,,,,,
